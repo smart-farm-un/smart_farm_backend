@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  department: MyString
+  department_code: 1
+  city: MyString
+  city_code: 1
+
+two:
+  code: MyString
+  department: MyString
+  department_code: 1
+  city: MyString
+  city_code: 1

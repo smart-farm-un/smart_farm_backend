@@ -1,0 +1,2 @@
+class ReferencePrice < ApplicationRecord
+end
