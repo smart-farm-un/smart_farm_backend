@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'csv' 
+
+CSV.foreach('db/data/cities.csv', :headers => true) do |row|
+    City.create!(row.to_hash)
+end
+
+City.select(:code_department, :department).group(:code_department, :department).each{|r|  Department.create!(name: r.department, code: r.code_department)}
