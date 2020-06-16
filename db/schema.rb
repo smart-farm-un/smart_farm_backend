@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200615200141) do
+ActiveRecord::Schema.define(version: 20200615235210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,21 @@ ActiveRecord::Schema.define(version: 20200615200141) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "terrains", force: :cascade do |t|
+    t.string "name"
+    t.integer "area"
+    t.string "source_energy"
+    t.string "source_water"
+    t.string "state_path"
+    t.string "close_town"
+    t.decimal "latitude"
+    t.decimal "longitude"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_terrains_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false
@@ -79,9 +94,19 @@ ActiveRecord::Schema.define(version: 20200615200141) do
     t.json "tokens"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "phone_number"
+    t.string "document_type"
+    t.integer "document_number"
+    t.date "birth_date"
+    t.string "state"
+    t.string "town"
+    t.string "role"
+    t.decimal "latitude"
+    t.decimal "longitude"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "terrains", "users"
 end

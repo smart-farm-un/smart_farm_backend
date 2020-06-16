@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  area: 1
+  source_energy: MyString
+  source_water: MyString
+  state_path: MyString
+  close_town: MyString
+  latitude: 9.99
+  longitude: 9.99
+
+two:
+  name: MyString
+  area: 1
+  source_energy: MyString
+  source_water: MyString
+  state_path: MyString
+  close_town: MyString
+  latitude: 9.99
+  longitude: 9.99
