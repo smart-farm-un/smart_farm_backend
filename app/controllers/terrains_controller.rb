@@ -15,7 +15,10 @@ class TerrainsController < ApplicationController
 
   # POST /terrains
   def create
+    puts "current user"
+    puts current_user.id
     @terrain = Terrain.new(terrain_params)
+    @terrain.user_id = current_user.id 
 
     if @terrain.save
       render json: @terrain, status: :created, location: @terrain
