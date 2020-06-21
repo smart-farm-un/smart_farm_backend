@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  crop_type: MyString
+  sowing_date: 2020-06-19
+  harvesting_planned_date: 2020-06-19
+  actual_harvesting_date: 2020-06-19
+  sowing_area: 1
+  terrain: one
+  user: one
+
+two:
+  crop_type: MyString
+  sowing_date: 2020-06-19
+  harvesting_planned_date: 2020-06-19
+  actual_harvesting_date: 2020-06-19
+  sowing_area: 1
+  terrain: two
+  user: two

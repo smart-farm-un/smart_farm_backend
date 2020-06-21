@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200615235210) do
+ActiveRecord::Schema.define(version: 20200619203454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,20 @@ ActiveRecord::Schema.define(version: 20200615235210) do
     t.string "scientificName"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "crops", force: :cascade do |t|
+    t.string "crop_type"
+    t.date "sowing_date"
+    t.date "harvesting_planned_date"
+    t.date "actual_harvesting_date"
+    t.integer "sowing_area"
+    t.bigint "terrain_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["terrain_id"], name: "index_crops_on_terrain_id"
+    t.index ["user_id"], name: "index_crops_on_user_id"
   end
 
   create_table "departments", force: :cascade do |t|
@@ -108,5 +122,7 @@ ActiveRecord::Schema.define(version: 20200615235210) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "crops", "terrains"
+  add_foreign_key "crops", "users"
   add_foreign_key "terrains", "users"
 end
